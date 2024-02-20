@@ -27,6 +27,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Pub-88-uIe" kind="showDetail" identifier="showDetailSegue" id="50n-uY-P0n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -137,7 +140,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTn-rJ-Xov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="-27"/>
+            <point key="canvasLocation" x="1727" y="-27"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="vmb-Yy-264">
+            <objects>
+                <viewController id="Pub-88-uIe" customClass="DetailViewController" customModule="tablview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jKz-l3-k30">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqt-Np-iSh">
+                                <rect key="frame" x="146.33333333333334" y="379.66666666666669" width="100.33333333333334" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcQ-GF-Fed">
+                                <rect key="frame" x="169" y="356" width="55" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BTK-ct-V3v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Oqt-Np-iSh" firstAttribute="centerX" secondItem="jKz-l3-k30" secondAttribute="centerX" id="1jW-yW-PJO"/>
+                            <constraint firstItem="Oqt-Np-iSh" firstAttribute="centerY" secondItem="jKz-l3-k30" secondAttribute="centerY" id="RPb-fE-4Hn"/>
+                            <constraint firstItem="DcQ-GF-Fed" firstAttribute="centerX" secondItem="jKz-l3-k30" secondAttribute="centerX" id="UID-nk-cgz"/>
+                            <constraint firstItem="Oqt-Np-iSh" firstAttribute="top" secondItem="DcQ-GF-Fed" secondAttribute="bottom" constant="50" id="qJR-vC-Ujt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VrO-MS-cO0"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Oqt-Np-iSh" id="YwV-jt-OFC"/>
+                        <outlet property="nameLabel" destination="DcQ-GF-Fed" id="k9f-Km-mWj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="735-ga-iSD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Wd-pe-L2X">

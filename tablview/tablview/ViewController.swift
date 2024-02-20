@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,SecondViewControllerDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,SecondViewControllerDelegate  {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -22,12 +22,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             ["task": "Demotask", "description": "Demodescrption"],
             
         ]
+    
 
         override func viewDidLoad() {
             super.viewDidLoad()
             tableView.dataSource = self
             tableView.delegate = self
+            
         }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Remove the item from your data source
+            dummyData.remove(at: indexPath.row)
+
+            // Delete the row from the table view
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetailSegue", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailSegue", let indexPath = tableView.indexPathForSelectedRow {
+            let selectedData = dummyData[indexPath.row]
+           
+            if let detailViewController = segue.destination as? DetailViewController {
+                detailViewController.detailData = selectedData
+            }
+        }
+    }
+
+
     func didAddData(task: String, description: String) {
             // Handle the received data, for example, update your data source and reload the table view
             dummyData.append(["task": task, "description": description])
